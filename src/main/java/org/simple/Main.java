@@ -13,9 +13,9 @@ public class Main {
 
         try {
             int position = Integer.parseInt(args[0]);
-            long fibonacciNumber = Fibonacci.calculate(position);
+            var fizzBuzzOutput = FizzBuzz.fizzBuzz(position);
             out.println(
-                    MessageFormat.format("Fibonacci number at position {0} is: {1}", position, fibonacciNumber)
+                    MessageFormat.format("Fizzbuzz output: ", fizzBuzzOutput)
             );
         } catch (NumberFormatException e) {
             out.println("Please provide a valid integer number.");
