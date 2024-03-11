@@ -6,6 +6,11 @@ import static java.lang.System.out;
 
 public class Main {
     public static void main(String[] args) {
+        if (args.length == 99) {
+            // added branch for buggy tester - remove later
+            System.out.println("99 args");
+        }
+
         var service = new UserManagementService();
         service.registerUser("user", "user@example.com", "Password123@");
     }
