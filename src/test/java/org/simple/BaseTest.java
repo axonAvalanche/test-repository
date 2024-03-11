@@ -8,7 +8,11 @@ class BaseTest {
 
     @Test
     public void test() {
-        assertTrue(true);
+        UserManagementService service = new UserManagementService();
+
+        var result = service.resetPassword("user@exmaple.com", "pass123");
+
+        assertFalse(result);
     }
 
 }

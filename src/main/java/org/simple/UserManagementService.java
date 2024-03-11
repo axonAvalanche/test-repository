@@ -33,19 +33,21 @@ public class UserManagementService {
         return password.matches(passwordPattern);
     }
 
-    public void resetPassword(String email, String newPassword) {
+    public boolean resetPassword(String email, String newPassword) {
         for (User user : users) {
             if (user.getEmail().equalsIgnoreCase(email)) {
-                if (isValidPassword(newPassword)) {
-                    user.setPassword(newPassword);
-                    System.out.println("Password successfully reset.");
-                } else {
+                if (!isValidPassword(newPassword)) {
                     System.out.println("New password does not meet the requirements.");
+                    return false;
                 }
-                return;
+
+                user.setPassword(newPassword);
+                System.out.println("Password successfully reset.");
+                return true;
             }
         }
 
         System.out.println("User with email " + email + " not found.");
+        return false;
     }
 }
